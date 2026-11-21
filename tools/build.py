@@ -48,6 +48,18 @@ def zip_addon(addon_id, path, zip_path):
                 zf.write(full, arc)
 
 
+def copy_assets(path, xml_path, addon_dir):
+    """Kodi loads icon/fanart/screenshots of repository add-ons from <artdir>/<id>/<asset path>."""
+    for asset in ET.parse(xml_path).getroot().iter("assets"):
+        for el in asset:
+            if el.text and el.text.strip():
+                src = os.path.join(path, el.text.strip())
+                dst = os.path.join(addon_dir, el.text.strip())
+                if os.path.isfile(src):
+                    os.makedirs(os.path.dirname(dst), exist_ok=True)
+                    shutil.copy(src, dst)
+
+
 def write_index(directory, entries):
     links = "\n".join('<a href="%s">%s</a><br>' % (html.escape(e), html.escape(e)) for e in entries)
     with open(os.path.join(directory, "index.html"), "w", encoding="utf-8") as f:
@@ -74,6 +86,7 @@ def main():
         os.makedirs(addon_dir)
         zip_name = "%s-%s.zip" % (addon_id, version)
         zip_addon(addon_id, path, os.path.join(addon_dir, zip_name))
+        copy_assets(path, xml_path, addon_dir)
         write_index(addon_dir, [zip_name])
         if addon_id.startswith("repository."):
             shutil.copy(os.path.join(addon_dir, zip_name), out)
