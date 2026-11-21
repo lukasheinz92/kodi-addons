@@ -89,7 +89,8 @@ def main():
     with open(os.path.join(out, "addons.xml"), "wb") as f:
         f.write(addons_xml)
     with open(os.path.join(out, "addons.xml.md5"), "w", encoding="ascii") as f:
-        f.write(hashlib.md5(addons_xml).hexdigest())
+        # md5sum format; Kodi's CRepository::FetchChecksum needs a space or newline after the hash
+        f.write("%s  addons.xml\n" % hashlib.md5(addons_xml).hexdigest())
     write_index(out, root_entries)
     open(os.path.join(out, ".nojekyll"), "w").close()
     print("site written to %s" % out)
