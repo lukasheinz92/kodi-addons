@@ -1,0 +1,36 @@
+# Kodi Media Center language file
+# Addon Name: Guide Auto-Now
+# Addon id: service.guide.autonow
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: en_GB\n"
+
+msgctxt "#30000"
+msgid "General"
+msgstr ""
+
+msgctxt "#30001"
+msgid "Enabled"
+msgstr ""
+
+msgctxt "#30002"
+msgid "Re-open the guide on the current time after it was left idle."
+msgstr ""
+
+msgctxt "#30003"
+msgid "Refresh after idle time (minutes)"
+msgstr ""
+
+msgctxt "#30004"
+msgid "Minutes without input (1-1440) after which an open guide is re-opened on the current time. Only when nothing is playing."
+msgstr ""
+
+msgctxt "#30005"
+msgid "Also refresh the radio guide"
+msgstr ""
+
+msgctxt "#30006"
+msgid "Apply the same refresh to the radio guide window."
+msgstr ""

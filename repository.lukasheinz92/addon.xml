@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="repository.lukasheinz92" name="lukasheinz92 Add-ons" version="1.0.0" provider-name="lukasheinz92">
+  <extension point="xbmc.addon.repository" name="lukasheinz92 Add-ons">
+    <dir>
+      <info compressed="false">https://lukasheinz92.github.io/kodi-addons/addons.xml</info>
+      <checksum>https://lukasheinz92.github.io/kodi-addons/addons.xml.md5</checksum>
+      <datadir zip="true">https://lukasheinz92.github.io/kodi-addons/</datadir>
+    </dir>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en_GB">Kodi add-ons by lukasheinz92</summary>
+    <description lang="en_GB">Repository with Kodi add-ons from https://github.com/lukasheinz92/kodi-addons. Installed add-ons are updated automatically.</description>
+    <platform>all</platform>
+    <license>MIT</license>
+    <source>https://github.com/lukasheinz92/kodi-addons</source>
+    <assets>
+      <icon>icon.png</icon>
+    </assets>
+  </extension>
+</addon>
