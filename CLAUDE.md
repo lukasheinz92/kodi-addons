@@ -11,3 +11,7 @@ workflow to GitHub Pages (`https://lukasheinz92.github.io/kodi-addons/`, Pages s
 - Keep Kodi-independent logic in `resources/lib/logic.py` so it is unit-testable without Kodi.
 - Main consumer: pi-media (LibreELEC 12 / Kodi 21, `ssh root@192.168.144.111`, see `rpi/pi-media`). Kodi log there:
   `/storage/.kodi/temp/kodi.log` (grep the add-on id).
+- Gotcha (2026-11-21): Kodi on pi-media got into a state where direct HTTPS reads returned 0 bytes instantly (no
+  request, nothing in the log even at trace level) → "Could not connect to repository" / `CRepository: failed read
+  '…addons.xml.md5'`, while `curl` on the Pi and Kodi via `http://` (301 → https) worked. `systemctl restart kodi`
+  fixed it. Quick check from Kodi's VFS: a `RunScript` with `xbmcvfs.File(url).readBytes()`.
